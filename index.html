@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>SQL Injection - Exemplo</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    </head>
+    <body>
+
+    <div class="container">
+
+        <div class="jumbotron text-center">
+            <h1>Exemplo de SQL Injection em um Formulário de Login</h1>
+            <p>Exemplo com uma Injeção SQL Clássica onde ao inserir <b>1' or '1' = '1</b> no campo da senha, é retornado um debug com todos os usuários cadastrados no banco de dados, provando que o sistema contém falhas.
+                Essa lógica do <b>1' or '1' = '1</b> seria a mesma coisa que falar pro SQL: me retorne o usuario que seja igual a vazio OU 1. Lembrando que 1 em Computação é a mesma coisa que True (verdadeiro). Lendo novamente: Me retorne o usuário que seja igual a vazio (não existe nenhum) OU verdadeiro. Nisso, a tabela pega todos os usuários, pois todos dão verdadeiro. Não são igual a vazio, mas o 1 garante que todos sejam válidos.</p> 
+        </div>
+
+        <form method="post" action="modelo.php">
+              <div class="form-group">
+                <label for="nome">Endereço de e-mail:</label>
+                <input type="text" class="form-control" name="nome" id="nome">
+              </div>
+              <div class="form-group">
+                <label for="senha">Password:</label>
+                <input type="password" class="form-control" name="senha" id="senha">
+              </div>
+              <button type="submit" value="submit" name="enviar" class="btn btn-default">Enviar</button>
+        </form>
+    </body>
+</html>
